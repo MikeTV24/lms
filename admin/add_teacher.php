@@ -31,6 +31,12 @@
                                             </select>
                                           </div>
                                         </div>
+
+                                        <div class="control-group">
+                                          <div class="controls">
+                                            <input name="un" class="input focused" id="focusedInput" type="text" placeholder = "ID Number" required>
+                                          </div>
+                                        </div>
 										
 										<div class="control-group">
                                           <div class="controls">
@@ -62,7 +68,7 @@
 					
 					    <?php
                             if (isset($_POST['save'])) {
-                           
+                                $username = $_POST['un'];
                                 $firstname = $_POST['firstname'];
                                 $lastname = $_POST['lastname'];
                                 $department_id = $_POST['department'];
@@ -78,8 +84,8 @@
 								<?php
 								}else{
 
-                                mysqli_query($conn,"insert into teacher (firstname,lastname,location,department_id)
-								values ('$firstname','$lastname','uploads/NO-IMAGE-AVAILABLE.jpg','$department_id')         
+                                mysqli_query($conn,"insert into teacher (username,firstname,lastname,location,department_id)
+								values ('$username','$firstname','$lastname','uploads/NO-IMAGE-AVAILABLE.jpg','$department_id')         
 								") or die(mysqli_error()); ?>
 								<script>
 							 	window.location = "teachers.php"; 
